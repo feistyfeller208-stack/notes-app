@@ -36,6 +36,20 @@ main {
   padding: 1rem;
 }
 
+.note {
+  padding: 10px;
+  margin: 10px;
+  border-radius: 8px;
+  background-color: #222;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.note.glow {
+  box-shadow: 0 0 20px 5px #00ffea;
+  transform: scale(1.05);
+}
+
 #notesList {
   list-style:none;
   padding:0;
