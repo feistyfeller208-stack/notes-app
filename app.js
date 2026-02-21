@@ -54,6 +54,44 @@ function saveNote() {
   }
 }
 
+function renderNotes() {
+  const clusterState = entangle.getClusterState('Cluster_Notes');
+
+  Object.keys(clusterState).forEach(noteId => {
+    const value = parseFloat(clusterState[noteId]);
+    const el = document.getElementById(noteId);
+    if (!el) return;
+
+    // Map value 0–1 → background color brightness
+    const brightness = 30 + value * 70; // 30% → 100%
+    el.style.backgroundColor = `hsl(180, 80%, ${brightness}%)`;
+
+    // Add glow if value > 0.7
+    if (value > 0.7) el.classList.add('glow');
+    else el.classList.remove('glow');
+
+    // Optional: scale font based on state
+    el.style.transform = `scale(${1 + value * 0.1})`;
+  });
+}
+
+// Call renderNotes after each event
+function submitEvent() {
+  if (!currentCluster) { alert('Select cluster first'); return; }
+
+  const eventType = document.getElementById('eventType').value;
+  const value = parseFloat(document.getElementById('eventValue').value);
+  const target = document.getElementById('targetEntity').value;
+  if (isNaN(value)) { alert('Value must be number'); return; }
+
+  const event = { type: eventType, value };
+  if (eventType === 'merge') event.targetEntity = target;
+
+  entangle.applyEvent(currentCluster, event);
+  updateState();   // existing dashboard state update
+  renderNotes();   // NEW: update Notes UI
+}
+
 // cancel edit
 function cancelEdit() { editor.classList.add('hidden'); }
 
