@@ -1,0 +1,86 @@
+body {
+  margin:0;
+  font-family: 'Helvetica Neue', sans-serif;
+  background: #f7f7f7;
+  color: #333;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: #1e1e2f;
+  color: #fff;
+}
+
+header h1 {
+  margin:0;
+  font-size: 1.5rem;
+}
+
+header button {
+  background: #ff7f50;
+  border: none;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+header button:hover { background: #ff6347; }
+
+main {
+  display: flex;
+  padding: 1rem;
+}
+
+#notesList {
+  list-style:none;
+  padding:0;
+  width: 30%;
+  margin-right: 2rem;
+}
+
+#notesList li {
+  background:#fff;
+  margin-bottom:1rem;
+  padding:0.75rem;
+  border-radius:8px;
+  cursor:pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.1s;
+}
+
+#notesList li:hover { transform: translateY(-2px); }
+
+#editor {
+  flex:1;
+  display:flex;
+  flex-direction:column;
+}
+
+#editor input, #editor textarea {
+  margin-bottom:0.5rem;
+  padding:0.5rem;
+  border-radius:6px;
+  border:1px solid #ccc;
+  width:100%;
+  font-size:1rem;
+}
+
+#editor button {
+  background:#1e1e2f;
+  color:#fff;
+  border:none;
+  padding:0.5rem 1rem;
+  border-radius:6px;
+  margin-right:0.5rem;
+  cursor:pointer;
+  transition: background 0.2s;
+}
+
+#editor button:hover { background:#333; }
+
+.hidden { display:none; }
