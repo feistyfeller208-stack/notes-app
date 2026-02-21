@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entangle Notes</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <header>
+    <h1>Entangle Notes</h1>
+    <button id="newNoteBtn">New Note</button>
+  </header>
+
+  <main>
+    <ul id="notesList"></ul>
+
+    <div id="editor" class="hidden">
+      <input type="text" id="noteTitle" placeholder="Title">
+      <textarea id="noteContent" placeholder="Write your note..."></textarea>
+      <button id="saveNoteBtn">Save</button>
+      <button id="cancelEditBtn">Cancel</button>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+  </html>
